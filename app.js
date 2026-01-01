@@ -5,19 +5,18 @@
 
 /** ✅ Edit these */
 const PROFILE = {
-  name: "Your Name",
-  role: "Front-End / Systems Builder",
-  location: "Pacific Northwest",
-  email: "you@example.com",
+  name: "James Daniels",
+  role: "IT • Networking • Systems & UI Builder",
+  location: "Tacoma, WA · PNW / Remote",
+  email: "jadanie@uw.edu",
   socials: [
-    { label: "GitHub", href: "https://github.com/your-username" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/your-handle/" },
-    { label: "Resume", href: "#", note: "Replace with a PDF link in your repo" },
+    { label: "GitHub", href: "https://github.com/jamdanie" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/james-daniels-/" },
+    { label: "Resume", href: "./resume.pdf", note: "PDF" }
   ],
-  // Optional: quick “mailto” subject/body
   mailto: {
     subject: "Portfolio inquiry",
-    body: "Hey! I saw your portfolio and would like to connect about…",
+    body: "Hi James — I came across your portfolio and would like to connect about potential opportunities."
   }
 };
 
@@ -31,48 +30,57 @@ const PROFILE = {
  */
 const PROJECTS = [
   {
-    title: "Pulse Dashboard",
-    blurb: "A dark UI dashboard with animated cards, keyboard-first interactions, and lightweight state management.",
-    tags: ["UI", "Dashboard", "JavaScript", "Accessibility"],
+    title: "Networking Lab Environment (GNS3)",
+    blurb: "Hands-on routing, switching, and troubleshooting labs with repeatable configurations and documentation.",
+    tags: ["Networking", "Labs", "Infrastructure"],
     year: "2026",
-    links: { demo: "#", repo: "#" }
+    links: {
+      demo: null,
+      repo: "https://github.com/jamdanie"
+    }
   },
   {
     title: "CLI Study Toolkit",
-    blurb: "A clean command-line toolkit that generates practice prompts and structured drills from a single config file.",
-    tags: ["CLI", "Automation", "JavaScript", "Tooling"],
+    blurb: "Command-line tool for generating structured study prompts and drills using configurable data files.",
+    tags: ["CLI", "Automation", "JavaScript"],
     year: "2025",
-    links: { demo: "#", repo: "#" }
+    links: {
+      demo: null,
+      repo: "https://github.com/jamdanie"
+    }
   },
   {
-    title: "Network Lab Notes",
-    blurb: "A compact knowledge base for labs, diagrams, and procedures—optimized for quick search and reuse.",
-    tags: ["Docs", "Systems", "Workflow", "CSS"],
+    title: "Dark Premium Portfolio",
+    blurb: "Single-page portfolio built with HTML, CSS, and JavaScript featuring data-driven projects and smooth UI motion.",
+    tags: ["Portfolio", "UI", "CSS", "JavaScript"],
+    year: "2026",
+    links: {
+      demo: "https://jamdanie.github.io/Test-website-layout-dark/",
+      repo: "https://github.com/jamdanie/Test-website-layout-dark"
+    }
+  },
+  {
+    title: "Systems Documentation Hub",
+    blurb: "Centralized notes and diagrams for labs, workflows, and system concepts designed for fast recall.",
+    tags: ["Documentation", "Systems", "Workflow"],
     year: "2025",
-    links: { demo: "#", repo: "#" }
+    links: {
+      demo: null,
+      repo: "https://github.com/jamdanie"
+    }
   },
   {
-    title: "Motion Micro-Interactions",
-    blurb: "A set of subtle, premium animations focused on hover intent, scroll reveals, and polish without jank.",
-    tags: ["Motion", "CSS", "UI", "Performance"],
+    title: "UI Motion & Interaction Experiments",
+    blurb: "Exploration of subtle animations, hover intent, and scroll-based reveals that enhance UX without hurting performance.",
+    tags: ["UI", "Motion", "CSS", "Performance"],
     year: "2026",
-    links: { demo: "#", repo: "#" }
-  },
-  {
-    title: "Secure Notes (Local)",
-    blurb: "A local-only notes prototype exploring safe defaults and resilient UX patterns (no servers, no services).",
-    tags: ["Security", "UX", "JavaScript"],
-    year: "2026",
-    links: { demo: "#", repo: "#" }
-  },
-  {
-    title: "Portfolio Starter (This)",
-    blurb: "Single-page portfolio with filters/search, reveal animations, and GitHub Pages deployment—no frameworks.",
-    tags: ["Portfolio", "HTML", "CSS", "JavaScript"],
-    year: "2026",
-    links: { demo: "#top", repo: "#" }
+    links: {
+      demo: null,
+      repo: "https://github.com/jamdanie"
+    }
   }
 ];
+
 
 /* =========================
    Render + UI
