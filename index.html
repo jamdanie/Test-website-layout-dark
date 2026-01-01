@@ -1,1 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Dark Premium one-page portfolio" />
+  <title>Your Name — Dark Premium Portfolio</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background -->
+  <div class="bg">
+    <div class="bg__grid"></div>
+    <div class="bg__glow bg__glow--a"></div>
+    <div class="bg__glow bg__glow--b"></div>
+    <div class="bg__noise"></div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__text">YourName</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleLine"></span>
+          <span class="nav__toggleLine"></span>
+          <span class="nav__toggleLine"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+
+        <div class="nav__menu" id="navMenu">
+          <a class="nav__link" href="#about">About</a>
+          <a class="nav__link" href="#projects">Projects</a>
+          <a class="nav__link" href="#skills">Skills</a>
+          <a class="nav__link" href="#contact">Contact</a>
+          <a class="btn btn--ghost" href="#contact">Let’s talk</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="progress" aria-hidden="true">
+      <div class="progress__bar" id="progressBar"></div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero container section" aria-label="Hero">
+      <div class="hero__left">
+        <div class="pill reveal">
+          <span class="pill__spark" aria-hidden="true"></span>
+          Available for opportunities · 2026
+        </div>
+
+        <h1 class="hero__title reveal">
+          Dark. Premium. <span class="gradientText">Deliberate.</span>
+        </h1>
+
+        <p class="hero__subtitle reveal">
+          I build clean, modern experiences with thoughtful motion and sharp detail.
+          Here’s a curated set of projects, skills, and the fastest way to reach me.
+        </p>
+
+        <div class="hero__cta reveal">
+          <a class="btn btn--primary" href="#projects">View projects</a>
+          <a class="btn btn--soft" href="#about">About me</a>
+          <a class="btn btn--ghost" href="#contact">Contact</a>
+        </div>
+
+        <div class="hero__meta reveal">
+          <div class="metaCard">
+            <div class="metaCard__k">Focus</div>
+            <div class="metaCard__v">UI · Systems · Automation</div>
+          </div>
+          <div class="metaCard">
+            <div class="metaCard__k">Stack</div>
+            <div class="metaCard__v">HTML · CSS · JS</div>
+          </div>
+          <div class="metaCard">
+            <div class="metaCard__k">Location</div>
+            <div class="metaCard__v">PNW / Remote</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__right reveal" aria-hidden="true">
+        <div class="orbCard">
+          <div class="orbCard__top">
+            <div class="orbCard__label">Now playing</div>
+            <div class="orbCard__badge">Dark Premium</div>
+          </div>
+
+          <div class="orb">
+            <div class="orb__ring"></div>
+            <div class="orb__core"></div>
+            <div class="orb__spark orb__spark--1"></div>
+            <div class="orb__spark orb__spark--2"></div>
+            <div class="orb__spark orb__spark--3"></div>
+          </div>
+
+          <div class="orbCard__bottom">
+            <div class="orbStat">
+              <div class="orbStat__k">Build style</div>
+              <div class="orbStat__v">Minimal + Motion</div>
+            </div>
+            <div class="orbStat">
+              <div class="orbStat__k">Quality</div>
+              <div class="orbStat__v">Pixel-precise</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floatingTags">
+          <span class="tag">Design systems</span>
+          <span class="tag">Interactions</span>
+          <span class="tag">Performance</span>
+          <span class="tag">Accessibility</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container section">
+      <div class="sectionHead reveal">
+        <h2 class="h2">About</h2>
+        <p class="muted">
+          Short, confident, and specific—swap this text for your real story.
+        </p>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h3 class="h3">What I do</h3>
+          <p class="muted">
+            I translate ideas into clean interfaces, build reliable front-end structure,
+            and add motion that feels “expensive” without being distracting.
+          </p>
+
+          <div class="split">
+            <div class="mini">
+              <div class="mini__k">Strength</div>
+              <div class="mini__v">Clarity & polish</div>
+            </div>
+            <div class="mini">
+              <div class="mini__k">Approach</div>
+              <div class="mini__v">Design → Build → Refine</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="h3">Highlights</h3>
+          <ul class="bullets">
+            <li>Modern UI patterns: strong hierarchy, clean spacing, premium motion.</li>
+            <li>Data-driven sections (projects) for easy updates.</li>
+            <li>Accessible, responsive layout—looks great on mobile.</li>
+            <li>No frameworks, no external services—fast GitHub Pages deploy.</li>
+          </ul>
+
+          <div class="ctaRow">
+            <a class="btn btn--soft" href="#projects">See work</a>
+            <a class="btn btn--ghost" href="#contact">Hire me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container section">
+      <div class="sectionHead reveal">
+        <h2 class="h2">Projects</h2>
+        <p class="muted">
+          Data-driven cards. Edit <span class="code">PROJECTS</span> in <span class="code">app.js</span>.
+        </p>
+      </div>
+
+      <div class="toolbar reveal">
+        <div class="search">
+          <input id="projectSearch" class="input" type="search" placeholder="Search projects..." autocomplete="off" />
+          <div class="search__hint muted">Tip: try “dashboard”, “api”, “css”, “cli”</div>
+        </div>
+
+        <div class="filters">
+          <div class="filters__label muted">Filter:</div>
+          <div id="tagFilters" class="chipRow" aria-label="Project filters"></div>
+        </div>
+      </div>
+
+      <div id="projectsGrid" class="projectsGrid" aria-live="polite"></div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="container section">
+      <div class="sectionHead reveal">
+        <h2 class="h2">Skills</h2>
+        <p class="muted">A clean snapshot—replace or expand as you grow.</p>
+      </div>
+
+      <div class="skillsGrid">
+        <div class="card reveal">
+          <h3 class="h3">Front-End</h3>
+          <div class="bars">
+            <div class="bar">
+              <div class="bar__k">HTML</div>
+              <div class="bar__track"><div class="bar__fill" style="--w: 92%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar__k">CSS</div>
+              <div class="bar__track"><div class="bar__fill" style="--w: 88%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar__k">JavaScript</div>
+              <div class="bar__track"><div class="bar__fill" style="--w: 82%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="h3">Systems</h3>
+          <ul class="bullets">
+            <li>Performance-minded UI (layout, paint, animations).</li>
+            <li>Git & GitHub workflows.</li>
+            <li>Clean architecture: reusable components & patterns.</li>
+            <li>Basic security hygiene + sane defaults.</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="h3">Toolbox</h3>
+          <div class="pillRow">
+            <span class="pill2">VS Code</span>
+            <span class="pill2">Git</span>
+            <span class="pill2">GitHub Pages</span>
+            <span class="pill2">CLI</span>
+            <span class="pill2">Figma (optional)</span>
+            <span class="pill2">Accessibility</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container section">
+      <div class="sectionHead reveal">
+        <h2 class="h2">Contact</h2>
+        <p class="muted">No forms, no services—just clean links.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card reveal">
+          <h3 class="h3">Fastest way to reach me</h3>
+          <p class="muted">
+            Add your real email + socials in <span class="code">app.js</span>.
+            The buttons below automatically update.
+          </p>
+
+          <div class="ctaRow" id="contactLinks"></div>
+
+          <div class="tiny muted">
+            Prefer email? The button uses <span class="code">mailto:</span> so it works everywhere.
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="h3">Quick pitch</h3>
+          <p class="muted">
+            I ship modern UI with premium motion, strong structure, and practical performance.
+            If you want clean work that looks expensive and feels smooth—let’s build.
+          </p>
+
+          <div class="quote">
+            <div class="quote__bar" aria-hidden="true"></div>
+            <div class="quote__text">
+              “Simple is hard. Smooth is deliberate.”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer container">
+      <div class="footer__left">
+        <div class="brand brand--small">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">YourName</span>
+        </div>
+        <div class="muted tiny">© <span id="year"></span> · Built with HTML/CSS/JS · GitHub Pages</div>
+      </div>
+
+      <div class="footer__right">
+        <button class="btn btn--ghost btn--icon" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle accent mode">
+          <span class="dotIcon" aria-hidden="true"></span>
+          Accent
+        </button>
+
+        <a class="btn btn--ghost btn--icon" href="#top" aria-label="Back to top">
+          ↑ Top
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
 
