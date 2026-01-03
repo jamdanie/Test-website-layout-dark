@@ -1,38 +1,24 @@
-/* --------------------
-   Design Tokens
--------------------- */
-
 :root{
-  --bg: #f6f7f9;
-  --ink: #0b0d12;
-  --muted: rgba(11,13,18,.65);
+  --bg: #f5f6f8;
+  --ink: #0c0f14;
+  --muted: rgba(12,15,20,.62);
 
-  --panel: rgba(255,255,255,.88);
-  --stroke: rgba(11,13,18,.12);
+  --panel: rgba(255,255,255,.86);
+  --stroke: rgba(12,15,20,.12);
 
-  --accent-a: #6a5cff;
-  --accent-b: #24e1c8;
+  --a: #6a5cff;
+  --b: #22e1c9;
 
+  --r: 28px;
   --shadow:
-    0 40px 120px rgba(0,0,0,.18),
-    0 8px 24px rgba(0,0,0,.12);
-
-  --r-xl: 28px;
+    0 44px 140px rgba(0,0,0,.18),
+    0 10px 30px rgba(0,0,0,.12);
 }
-
-/* --------------------
-   Base
--------------------- */
 
 *{ box-sizing:border-box; }
-
-html,body{
-  height:100%;
-  margin:0;
-}
-
+html,body{ height:100%; margin:0; }
 body{
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background: var(--bg);
   color: var(--ink);
 }
@@ -41,182 +27,341 @@ body{
   min-height:100vh;
   display:grid;
   place-items:center;
-  padding: 60px 20px;
+  padding: 64px 18px;
 }
 
-/* --------------------
-   Stage / Board
--------------------- */
-
+/* ---- Stage ---- */
 .stage{
-  width: min(1180px, 96vw);
-  position:relative;
+  width: min(1200px, 96vw);
+  position: relative;
   overflow: visible;
 }
 
-/* Clipped surface */
-.stage-surface{
+/* This is the “board/frame” */
+.surface{
+  position: relative;
+  border-radius: var(--r);
   background: var(--panel);
-  border-radius: var(--r-xl);
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
-  overflow:hidden;
-  position:relative;
-  animation: surfaceBreath 7s ease-in-out infinite;
+  overflow: hidden;
 }
 
-/* subtle inner outline */
-.stage-surface::before{
+/* crisp inner frame like awwwards boards */
+.surface::before{
   content:"";
   position:absolute;
   inset: 14px;
-  border-radius: calc(var(--r-xl) - 10px);
-  border: 1px solid rgba(11,13,18,.08);
+  border-radius: calc(var(--r) - 10px);
+  border: 1px solid rgba(12,15,20,.08);
   pointer-events:none;
 }
 
-/* --------------------
-   Peeking Image
--------------------- */
+/* subtle ambient “breathing” in the whitespace */
+.surface::after{
+  content:"";
+  position:absolute;
+  inset:-140px;
+  background:
+    radial-gradient(520px 420px at 20% 30%, rgba(106,92,255,.14), transparent 60%),
+    radial-gradient(520px 420px at 80% 70%, rgba(34,225,201,.12), transparent 62%);
+  opacity:.55;
+  filter: blur(18px);
+  animation: breathe 7.5s ease-in-out infinite;
+  pointer-events:none;
+}
 
+/* ---- Peeking character ---- */
 .peek{
   position:absolute;
-  top: -120px;
-  right: 70px;
-  width: min(320px, 34vw);
-  height:auto;
   z-index: 5;
+  top: -132px;
+  right: 84px;
+  width: min(360px, 34vw);
+  height:auto;
   pointer-events:none;
   user-select:none;
-  filter: drop-shadow(0 24px 60px rgba(0,0,0,.28));
-  animation: peekFloat 5.2s ease-in-out infinite;
+  filter: drop-shadow(0 26px 70px rgba(0,0,0,.24));
+  transform: translateZ(0);
+  animation: floaty 5.2s ease-in-out infinite;
 }
 
 @media (max-width: 900px){
   .peek{
-    top:-90px;
+    top:-96px;
     right: 18px;
-    width: min(240px, 52vw);
+    width: min(260px, 60vw);
   }
 }
 
-/* --------------------
-   Header
--------------------- */
-
-.stage-header{
-  display:flex;
+/* ---- Topbar with CENTER nav ---- */
+.topbar{
+  position: relative;
+  z-index: 2;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items:center;
-  justify-content:space-between;
-  padding: 22px 28px;
+  padding: 20px 26px;
 }
 
-.mark{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
-}
-
-.nav{
+.left{
   display:flex;
-  gap:18px;
+  gap:10px;
+  align-items:center;
 }
 
-.nav a{
+.dot{
+  width:10px; height:10px; border-radius:999px;
+  background: linear-gradient(135deg, var(--a), var(--b));
+}
+
+.brand{
+  font-size: 14px;
+  letter-spacing:.2px;
+  color: rgba(12,15,20,.72);
+  font-weight: 600;
+}
+
+/* THIS centers the nav */
+.nav{
+  justify-self:center;
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+
+.navlink{
   text-decoration:none;
-  color: var(--muted);
-  font-size:14px;
+  font-size: 14px;
+  color: rgba(12,15,20,.62);
+  padding: 8px 10px;
+  border-radius: 999px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
 }
 
-.nav a:hover{
-  color: var(--ink);
+.navlink:hover{
+  background: rgba(12,15,20,.06);
+  color: rgba(12,15,20,.86);
+  transform: translateY(-1px);
 }
 
-/* --------------------
-   Hero
--------------------- */
+.right{
+  justify-self:end;
+}
 
+.chip{
+  text-decoration:none;
+  font-size: 13px;
+  color: rgba(12,15,20,.72);
+  padding: 8px 12px;
+  border: 1px solid rgba(12,15,20,.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,.55);
+}
+
+/* ---- Hero ---- */
 .hero{
-  padding: 72px 28px 64px;
-  max-width: 620px;
+  position: relative;
+  z-index: 2;
+  padding: 72px 26px 26px;
+  max-width: 720px;
 }
 
-.hero h1{
-  font-size: clamp(36px, 5vw, 54px);
-  line-height:1.05;
-  margin:0 0 14px;
-  letter-spacing:-.02em;
+.kicker{
+  margin:0 0 12px;
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(12,15,20,.55);
 }
 
-.hero h1 span{
-  background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+.headline{
+  margin:0 0 10px;
+  font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
 }
 
-.hero p{
-  font-size:16px;
-  color: var(--muted);
-  margin:0 0 28px;
+.headline span{
+  background: linear-gradient(135deg, var(--a), var(--b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.actions{
+.subhead{
+  margin:0 0 24px;
+  color: rgba(12,15,20,.62);
+  font-size: 16px;
+}
+
+.buttons{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
 }
 
-/* --------------------
-   Buttons
--------------------- */
-
 .btn{
+  text-decoration:none;
+  font-size: 14px;
   padding: 12px 16px;
   border-radius: 12px;
-  font-size:14px;
-  text-decoration:none;
-  border:1px solid var(--stroke);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.btn.primary{
-  background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
-  color:#fff;
-  border:none;
-}
-
-.btn.ghost{
-  color: var(--ink);
-  background: transparent;
+  border: 1px solid rgba(12,15,20,.14);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
 
 .btn:hover{
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
 }
 
-/* --------------------
-   Footer
--------------------- */
+.btn.primary{
+  border:none;
+  color:#fff;
+  background: linear-gradient(135deg, var(--a), var(--b));
+}
 
+.btn.ghost{
+  color: rgba(12,15,20,.86);
+  background: rgba(255,255,255,.55);
+}
+
+/* ---- Sections ---- */
+.section{
+  position: relative;
+  z-index: 2;
+  padding: 34px 26px 8px;
+}
+
+.section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(12,15,20,.08);
+}
+
+.section-head h2{
+  margin:0;
+  font-size: 18px;
+  letter-spacing: -.01em;
+}
+
+.section-head p{
+  margin:0;
+  color: rgba(12,15,20,.58);
+  font-size: 14px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+  padding-top: 14px;
+}
+
+@media (max-width: 820px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+/* ---- Cards ---- */
+.card{
+  display:block;
+  text-decoration:none;
+  color: inherit;
+  border-radius: 18px;
+  border: 1px solid rgba(12,15,20,.10);
+  background: rgba(255,255,255,.55);
+  padding: 16px 16px 14px;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(12,15,20,.16);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 10px;
+}
+
+.pill{
+  font-size: 12px;
+  color: rgba(12,15,20,.62);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(12,15,20,.10);
+  background: rgba(255,255,255,.6);
+}
+
+.arrow{
+  font-size: 14px;
+  color: rgba(12,15,20,.55);
+}
+
+.card h3{
+  margin: 0 0 6px;
+  font-size: 16px;
+  letter-spacing: -.01em;
+}
+
+.card p{
+  margin:0;
+  color: rgba(12,15,20,.60);
+  font-size: 14px;
+}
+
+/* ---- About mini cards ---- */
+.about-row{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+  padding-top: 14px;
+}
+
+@media (max-width: 820px){
+  .about-row{ grid-template-columns: 1fr; }
+}
+
+.about-card{
+  border-radius: 18px;
+  border: 1px solid rgba(12,15,20,.10);
+  background: rgba(255,255,255,.55);
+  padding: 16px;
+}
+
+.about-card h3{
+  margin:0 0 6px;
+  font-size: 14px;
+}
+
+.about-card p{
+  margin:0;
+  font-size: 14px;
+  color: rgba(12,15,20,.60);
+}
+
+/* ---- Footer ---- */
 .footer{
-  padding: 18px 28px 22px;
-  font-size:12px;
-  color: rgba(11,13,18,.45);
+  position: relative;
+  z-index: 2;
+  padding: 22px 26px 26px;
+  color: rgba(12,15,20,.45);
+  font-size: 12px;
 }
 
-/* --------------------
-   Animations
--------------------- */
-
-@keyframes peekFloat{
+/* ---- Motion ---- */
+@keyframes floaty{
   0%,100%{ transform: translateY(0); }
   50%{ transform: translateY(-10px); }
 }
 
-@keyframes surfaceBreath{
-  0%,100%{ filter: brightness(1); }
-  50%{ filter: brightness(1.02); }
+@keyframes breathe{
+  0%,100%{ transform: translateY(0); opacity:.52; }
+  50%{ transform: translateY(-10px); opacity:.62; }
 }
