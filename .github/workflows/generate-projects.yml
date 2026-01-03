@@ -1,0 +1,40 @@
+name: Generate projects.json (C#)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/projects.seed.json"
+      - "tools/ProjectGen/**"
+      - ".github/workflows/generate-projects.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Run generator
+        run: dotnet run --project tools/ProjectGen/ProjectGen.csproj
+
+      - name: Commit updated projects.json (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/projects.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: auto-generate projects.json"
+          git push
