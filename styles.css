@@ -33,16 +33,19 @@ body{
     linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
-/* center everything */
+/* =========================
+   Page layout
+   ========================= */
+/* NOTE: we want the stage centered, but also allow sections below it */
 .page{
   min-height:100vh;
-  display:grid;
-  place-items:center;
-  padding: 28px 18px;
+  padding: 28px 18px 80px;
 }
 
+/* center stage only */
 .stage{
   width: min(1120px, 100%);
+  margin: 0 auto;
   display:grid;
   place-items:center;
 }
@@ -138,7 +141,6 @@ body{
   filter: drop-shadow(0 8px 14px rgba(0,0,0,.14));
 }
 
-
 /* 8 eyes evenly spaced (45° increments) */
 .eye.e1{ transform: rotate(0deg)   translateX(var(--orbitRadius)) rotate(0deg); }
 .eye.e2{ transform: rotate(45deg)  translateX(var(--orbitRadius)) rotate(-45deg); }
@@ -184,6 +186,103 @@ body{
 }
 
 /* =========================
+   Projects section (Phase 1)
+   ========================= */
+.section{
+  width: min(1120px, 100%);
+  margin: 44px auto 0;
+  padding: 56px 20px 0;
+}
+
+.section-head{
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.section-head h2{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: rgba(18,28,48,.92);
+}
+
+.muted{
+  margin: 0;
+  opacity: .75;
+  color: rgba(18,28,48,.78);
+}
+
+code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.projects-grid .card{
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(18,28,48,.12);
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 18px 45px rgba(20,30,55,.08);
+}
+
+.projects-grid .card h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: rgba(18,28,48,.92);
+}
+
+.projects-grid .card p{
+  margin: 0;
+  line-height: 1.45;
+  color: rgba(18,28,48,.78);
+}
+
+.projects-grid .tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.projects-grid .tag{
+  font-size:.85rem;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(18,28,48,.14);
+  background: rgba(255,255,255,.55);
+  color: rgba(18,28,48,.78);
+}
+
+.projects-grid .links{
+  display:flex;
+  gap:12px;
+  margin-top:14px;
+}
+
+.projects-grid .links a{
+  color: rgba(18,28,48,.92);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(18,28,48,.22);
+}
+
+.projects-grid .links a:hover{
+  border-bottom-color: rgba(18,28,48,.60);
+}
+
+.projects-grid .featured{
+  outline: 2px solid rgba(95,130,255,.22);
+  outline-offset: 2px;
+}
+
+/* =========================
    Responsive tweaks
    ========================= */
 @media (max-width: 720px){
@@ -219,5 +318,14 @@ body{
   .peek-bottom{
     width: min(320px, 78%);
     height: 82px;
+  }
+
+  .section{
+    margin-top: 28px;
+    padding-top: 40px;
+  }
+
+  .section-head h2{
+    font-size: 24px;
   }
 }
