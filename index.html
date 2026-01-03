@@ -31,58 +31,136 @@
         </div>
       </header>
 
-      <!-- main poster area -->
-      <div class="stage">
+      <!-- main poster area --><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>James Daniels</title>
+  <meta name="description" content="James Daniels — Work, About, GitHub" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
 
-        <!-- Big headline (poster style) -->
-        <div class="poster-text">
-          <div class="kicker">UI / LAYOUT STUDIES</div>
+<body>
+  <div class="bg" aria-hidden="true"></div>
 
-          <h1 class="headline">
-            DARK, CLEAN<br />
-            INTERFACES<br />
-            <span class="accent">BUILT WITH<br />RESTRAINT</span>
-          </h1>
-
-          <div class="cta-row">
-            <a class="cta primary" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">UI Layout Lab</a>
-            <a class="cta ghost" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank" rel="noreferrer">Mecha UI Study</a>
+  <main class="page">
+    <section class="stage" aria-label="Main stage">
+      <div class="frame" id="top">
+        <!-- Top bar (inside frame) -->
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span class="brand-name">James Daniels</span>
           </div>
 
-          <p class="micro">
-            UW student experimenting with structure, spacing, and subtle motion.
-          </p>
-        </div>
+          <nav class="nav" aria-label="Primary">
+            <a class="nav-link" href="#work">Work</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#github">GitHub</a>
+          </nav>
 
-        <!-- right visual zone (where the "peeking" character lives) -->
-        <div class="visual">
-          <!-- glow ring behind character -->
-          <div class="ring" aria-hidden="true"></div>
+          <div class="topbar-actions">
+            <a class="pill" href="#work" aria-label="View work">View</a>
+          </div>
+        </header>
 
-          <!-- character that breaks the frame -->
-          <img class="peek" src="./assets/peek.png" alt="" aria-hidden="true" />
-        </div>
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-left">
+            <h1 class="headline">
+              Dark, clean, and
+              <span class="pop">precision-built</span>.
+            </h1>
+            <p class="subcopy">
+              Single-page portfolio with a focused stage layout.
+            </p>
 
+            <div class="cta-row">
+              <a class="btn primary" href="#work">See Work</a>
+              <a class="btn ghost" href="#github">GitHub</a>
+            </div>
+
+            <div class="micro">
+              <span class="micro-chip">Responsive</span>
+              <span class="micro-chip">Minimal motion</span>
+              <span class="micro-chip">GitHub Pages-ready</span>
+            </div>
+          </div>
+
+          <div class="hero-right" aria-hidden="true">
+            <div class="hero-art">
+              <!-- Uses CSS background: url("./assets/hero.png") -->
+              <div class="hero-img"></div>
+              <div class="shine"></div>
+            </div>
+          </div>
+
+          <!-- Optional bottom peek eyes -->
+          <div class="peek-bottom" aria-hidden="true"></div>
+        </section>
+
+        <!-- Content -->
+        <section class="content">
+          <section class="section" id="work">
+            <div class="section-head">
+              <h2>Work</h2>
+              <p>Two live projects.</p>
+            </div>
+
+            <div class="cards">
+              <a class="card" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">
+                <div class="card-top">
+                  <span class="tag">Live</span>
+                  <span class="arrow" aria-hidden="true">↗</span>
+                </div>
+                <h3>UI Layout Lab</h3>
+                <p>Stage-frame layout experiments and clean UI structure.</p>
+              </a>
+
+              <a class="card" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank" rel="noreferrer">
+                <div class="card-top">
+                  <span class="tag">Live</span>
+                  <span class="arrow" aria-hidden="true">↗</span>
+                </div>
+                <h3>Mecha UI Study</h3>
+                <p>Glitch/scanline vibe exploration with modern motion.</p>
+              </a>
+            </div>
+          </section>
+
+          <section class="section" id="about">
+            <div class="section-head">
+              <h2>About</h2>
+              <p>
+                I build modern, responsive interfaces with focused layout and clean motion.
+                I like crisp structure, soft edges, and details that feel intentional.
+              </p>
+            </div>
+          </section>
+
+          <section class="section" id="github">
+            <div class="section-head">
+              <h2>GitHub</h2>
+              <p>Code + projects in one place.</p>
+            </div>
+
+            <div class="github-row">
+              <a class="btn primary" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">
+                Visit GitHub ↗
+              </a>
+            </div>
+          </section>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year"></span> James Daniels</span>
+          <a class="to-top" href="#top">Top ↑</a>
+        </footer>
       </div>
-
-      <!-- bottom HUD tags -->
-      <footer class="hud-bottom" aria-label="Footer chips">
-        <span class="chip">HTML / CSS</span>
-        <span class="chip soft">GitHub Pages</span>
-        <span class="chip soft">2026</span>
-      </footer>
-
-      <!-- decorative corner lines -->
-      <span class="corner tl" aria-hidden="true"></span>
-      <span class="corner tr" aria-hidden="true"></span>
-      <span class="corner bl" aria-hidden="true"></span>
-      <span class="corner br" aria-hidden="true"></span>
-
     </section>
-
-    <!-- anchors for nav without adding big sections -->
-    <span id="work" class="anchor"></span>
-    <span id="about" class="anchor"></span>
   </main>
+
+  <script src="./app.js"></script>
 </body>
 </html>
