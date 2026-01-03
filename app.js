@@ -1,4 +1,6 @@
-// app.js — Load projects from /data/projects.json and render to #projectsGrid
+// app.js
+// - Loads projects from /data/projects.json and renders to #projectsGrid
+// - Toggles the in-frame hamburger panel
 
 async function loadProjects() {
   const res = await fetch("./data/projects.json", { cache: "no-store" });
@@ -26,7 +28,6 @@ function renderProjects(projects) {
     return;
   }
 
-  // Featured first, then title
   const sorted = [...projects].sort((a, b) => {
     const af = a.featured ? 0 : 1;
     const bf = b.featured ? 0 : 1;
@@ -74,7 +75,46 @@ function showProjectsError(message) {
   `;
 }
 
+function setupDockMenu() {
+  const btn = document.getElementById("dockMenuBtn");
+  const panel = document.getElementById("dockPanel");
+  if (!btn || !panel) return;
+
+  const close = () => {
+    btn.setAttribute("aria-expanded", "false");
+    panel.hidden = true;
+  };
+
+  btn.addEventListener("click", () => {
+    const open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!open));
+    panel.hidden = open;
+  });
+
+  // Close when clicking a link in the panel
+  panel.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a) return;
+    close();
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+
+  // Close if clicking outside panel/button
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    if (panel.hidden) return;
+    if (panel.contains(t) || btn.contains(t)) return;
+    close();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+  setupDockMenu();
+
   try {
     const projects = await loadProjects();
     renderProjects(projects);
