@@ -1,66 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>James Daniels — UI Layout Studies</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>James Daniels — UI Studies</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-
   <main class="page">
 
-    <section class="stage" aria-label="Portfolio stage">
+    <section class="stage" aria-label="Centered stage">
 
-      <!-- Peeking character -->
-      <img
-        src="./assets/peek.png"
-        alt=""
-        class="peek"
-        aria-hidden="true"
-      />
+      <!-- Peek image (put file in /assets/peek.png) -->
+      <img class="peek" src="./assets/peek.png" alt="" aria-hidden="true" />
 
-      <!-- Clipped board surface -->
-      <div class="stage-surface">
+      <div class="surface">
 
-        <header class="stage-header">
-          <span class="mark"></span>
-          <nav class="nav">
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="https://github.com/jamdanie" target="_blank" rel="noreferrer">GitHub</a>
+        <!-- Top bar: left mark, CENTERED nav, right mini actions -->
+        <header class="topbar">
+          <div class="left">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="brand">James Daniels</span>
+          </div>
+
+          <nav class="nav" aria-label="Primary">
+            <a class="navlink" href="#work">Work</a>
+            <a class="navlink" href="#about">About</a>
+            <a class="navlink" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">GitHub</a>
           </nav>
+
+          <div class="right">
+            <a class="chip" href="#work">View</a>
+          </div>
         </header>
 
-        <section class="hero">
-          <h1>
-            Dark. Premium.<br />
-            <span>Deliberate.</span>
+        <!-- Hero -->
+        <section class="hero" id="top">
+          <p class="kicker">UI / Layout Studies</p>
+
+          <h1 class="headline">
+            Dark, clean interfaces—
+            <span>built with restraint.</span>
           </h1>
-          <p>
-            UI layout experiments focused on structure, restraint,
-            and subtle motion.
+
+          <p class="subhead">
+            Small experiments in hierarchy, spacing, and motion.
           </p>
 
-          <div class="actions">
-            <a class="btn primary" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank">
+          <div class="buttons">
+            <a class="btn primary" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">
               UI Layout Lab
             </a>
-            <a class="btn ghost" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank">
+            <a class="btn ghost" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank" rel="noreferrer">
               Mecha UI Study
             </a>
           </div>
         </section>
 
+        <!-- Work -->
+        <section class="section" id="work" aria-label="Work">
+          <div class="section-head">
+            <h2>Selected</h2>
+            <p>Two focused layout studies hosted on GitHub Pages.</p>
+          </div>
+
+          <div class="grid">
+            <a class="card" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">
+              <div class="card-top">
+                <span class="pill">HTML/CSS</span>
+                <span class="arrow">↗</span>
+              </div>
+              <h3>UI Layout Lab</h3>
+              <p>Bright, centered composition + clean spacing.</p>
+            </a>
+
+            <a class="card" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank" rel="noreferrer">
+              <div class="card-top">
+                <span class="pill">Mecha</span>
+                <span class="arrow">↗</span>
+              </div>
+              <h3>Mecha UI Study</h3>
+              <p>Dark UI + subtle motion + vertical glyphs.</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about" aria-label="About">
+          <div class="section-head">
+            <h2>About</h2>
+            <p>
+              UW student testing layout systems—structure first, polish second.
+            </p>
+          </div>
+
+          <div class="about-row">
+            <div class="about-card">
+              <h3>Focus</h3>
+              <p>UI structure · motion restraint · clean readability.</p>
+            </div>
+            <div class="about-card">
+              <h3>Stack</h3>
+              <p>HTML · CSS · JavaScript · GitHub Pages.</p>
+            </div>
+          </div>
+        </section>
+
         <footer class="footer">
-          Built with HTML & CSS · GitHub Pages
+          <span>Built with HTML/CSS · Hosted on GitHub Pages</span>
         </footer>
 
       </div>
     </section>
-
   </main>
-
 </body>
 </html>
