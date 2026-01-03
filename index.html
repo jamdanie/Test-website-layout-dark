@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Daniels</title>
 
-  <!-- Fonts (tech vibe for headings) -->
+  <!-- Tech font for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
@@ -36,22 +36,56 @@
         <!-- Interior content -->
         <div class="inside">
 
-          <!-- In-frame mini menu (does NOT interfere with orbit) -->
-          <div class="frame-dock" aria-label="Quick links">
-            <a class="dock-pill" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="dock-pill" href="https://www.linkedin.com/in/james-daniels-/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="dock-pill dock-strong" href="mailto:jadanie@uw.edu">Email</a>
+          <!-- In-frame top dock -->
+          <div class="frame-dock" aria-label="Menu">
+            <div class="dock-left">
+              <span class="brand-dot" aria-hidden="true"></span>
+              <span class="brand-text">JAMES</span>
+            </div>
+
+            <button class="iconbtn" id="dockMenuBtn" aria-label="Open menu" aria-expanded="false">
+              <span class="hamburger" aria-hidden="true"></span>
+            </button>
           </div>
 
-          <!-- Projects (stacked, inside frame) -->
-          <section id="projects" class="projects-inside" aria-label="Projects">
-            <header class="projects-head">
-              <h2 class="tech-title">Projects</h2>
-              <p class="muted">Loaded from <code>data/projects.json</code>.</p>
+          <!-- In-frame dropdown panel (opened by hamburger) -->
+          <div class="dock-panel" id="dockPanel" hidden>
+            <div class="dock-grid">
+              <a class="dock-pill" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="dock-pill" href="https://www.linkedin.com/in/james-daniels-/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="dock-pill" href="mailto:jadanie@uw.edu">Email</a>
+
+              <!-- Resume: use ONE of these -->
+              <a class="dock-pill dock-strong" href="./resume.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a>
+              <!-- If you only have a Word doc, comment the PDF line above and use this instead: -->
+              <!-- <a class="dock-pill dock-strong" href="./resume.docx">Resume (DOCX)</a> -->
+
+              <a class="dock-pill" href="./data/projects.json" target="_blank" rel="noreferrer">Projects Data</a>
+            </div>
+          </div>
+
+          <!-- Left column content -->
+          <section class="content-left" aria-label="Content">
+
+            <!-- Minimal headline -->
+            <header class="headline">
+              <h1 class="headline-title">James Daniels</h1>
+              <p class="headline-sub">
+                UW Tacoma • IT / Systems • Building clean interfaces + practical backend skills
+              </p>
             </header>
 
-            <!-- JS injects cards here -->
-            <div id="projectsGrid" class="projects-stack"></div>
+            <!-- Projects -->
+            <section id="projects" class="projects-inside" aria-label="Projects">
+              <div class="projects-head">
+                <h2 class="tech-title">Projects</h2>
+                <p class="muted">Loaded from <code>data/projects.json</code>.</p>
+              </div>
+
+              <!-- JS injects cards here -->
+              <div id="projectsGrid" class="projects-stack"></div>
+            </section>
+
           </section>
 
         </div>
@@ -62,4 +96,3 @@
   <script src="./app.js"></script>
 </body>
 </html>
-
