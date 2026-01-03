@@ -93,24 +93,36 @@ body{
   pointer-events:none;
 }
 
-/* BOTTOM EYES (eye.png) */
 .peek-bottom{
   position:absolute;
   left: 50%;
-  bottom: -18px;            /* pushes outside border */
+  bottom: -10px;                 /* how much it peeks out */
   transform: translateX(-50%);
-  width: min(340px, 62%);
-  height: 92px;
+  width: min(260px, 48%);
+  height: 64px;                  /* THIS crops the eye */
 
-  background-image: url("./assets/eye.png"); /* YOUR FILE */
-  background-repeat:no-repeat;
-  background-size: contain;
-  background-position: center bottom;
-
-  opacity: .96;
-  filter: drop-shadow(0 14px 22px rgba(0,0,0,.14));
+  overflow: hidden;              /* 👈 key */
   pointer-events:none;
 }
+
+/* inner image layer */
+.peek-bottom::before{
+  content:"";
+  position:absolute;
+  left: 50%;
+  bottom: -14px;                 /* pushes eye down */
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+
+  background-image: url("./assets/eye.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.18));
+}
+
 
 /* responsive tweaks */
 @media (max-width: 720px){
