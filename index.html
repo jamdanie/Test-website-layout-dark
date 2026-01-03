@@ -4,11 +4,51 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Daniels</title>
+
+  <!-- Fonts (tech + neon script vibe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
+  <!-- Sticky top menu -->
+  <header class="topbar" aria-label="Site navigation">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">James</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#projects" class="navlink">Projects</a>
+        <a href="#about" class="navlink">About</a>
+        <a href="#links" class="navlink">Links</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="pill" href="#projects">View</a>
+        <a class="pill pill-strong" href="#links">Contact</a>
+
+        <button class="iconbtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="mobilemenu" id="mobileMenu" hidden>
+      <a href="#projects" class="mobilelink">Projects</a>
+      <a href="#about" class="mobilelink">About</a>
+      <a href="#links" class="mobilelink">Links</a>
+    </div>
+  </header>
+
   <main class="page">
+    <div id="top"></div>
+
     <section class="stage" aria-label="Stage">
       <div class="frame">
 
@@ -33,7 +73,9 @@
           <!-- Projects (stacked, inside frame) -->
           <section id="projects" class="projects-inside" aria-label="Projects">
             <header class="projects-head">
-              <h2>Projects</h2>
+              <h2 class="tech-title">
+                Projects <span class="neon-script">+</span>
+              </h2>
               <p class="muted">
                 A few things I’ve built. Loaded from <code>data/projects.json</code>.
               </p>
@@ -41,6 +83,24 @@
 
             <!-- JS injects cards here -->
             <div id="projectsGrid" class="projects-stack"></div>
+
+            <!-- About -->
+            <section id="about" class="mini" aria-label="About">
+              <h3 class="mini-title">About</h3>
+              <p class="mini-text">
+                UW Tacoma • IT / Systems • Building clean, modern interfaces and practical backend skills.
+              </p>
+            </section>
+
+            <!-- Links -->
+            <section id="links" class="mini" aria-label="Links">
+              <h3 class="mini-title">Links</h3>
+              <div class="mini-links">
+                <a href="https://github.com/jamdanie" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/james-daniels-/" target="_blank" rel="noreferrer">LinkedIn</a>
+              </div>
+            </section>
+
           </section>
 
         </div>
