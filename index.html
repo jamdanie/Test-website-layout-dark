@@ -4,125 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Daniels</title>
-  <meta name="description" content="James Daniels — Work, About, GitHub" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-
 <body>
+
   <main class="page">
-    <section class="stage" id="top">
+    <section class="stage" aria-label="Stage">
       <div class="frame">
-        <!-- Top bar -->
-        <header class="topbar">
-          <div class="brand">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="brand-name">James Daniels</span>
-          </div>
 
-          <nav class="nav" aria-label="Primary">
-            <a class="nav-link" href="#work">Work</a>
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#github">GitHub</a>
-          </nav>
+        <!-- Top peek (outside border) -->
+        <div class="peek-top" aria-hidden="true"></div>
 
-          <div class="actions">
-            <a class="pill" href="#work">View</a>
-          </div>
-        </header>
+        <!-- Bottom eyes (outside border) -->
+        <div class="peek-bottom" aria-hidden="true"></div>
 
-        <!-- Hero row -->
-        <section class="hero">
-          <!-- Left: Record player visual (pure CSS) -->
-          <div class="media" aria-hidden="true">
-            <div class="media-surface">
-              <div class="record-wrap">
-                <div class="record"></div>
-                <div class="label"></div>
-              </div>
-              <div class="arm">
-                <div class="arm-bar"></div>
-                <div class="needle"></div>
-              </div>
-            </div>
-          </div>
+        <!-- Empty interior (clean) -->
+        <div class="inside" aria-hidden="true"></div>
 
-          <!-- Right: clean copy -->
-          <div class="copy">
-            <h1 class="title">HTML / CSS Test</h1>
-            <p class="subtitle">UW student layout study.</p>
-
-            <p class="desc">
-              A motion-focused layout built with only HTML and CSS.
-              Clean structure, soft edges, minimal effects.
-            </p>
-
-            <div class="buttons">
-              <a class="btn primary" href="#work">See Work</a>
-              <a class="btn ghost" href="#github">GitHub</a>
-            </div>
-          </div>
-
-          <!-- OPTIONAL: top-right character peek using hero.png -->
-          <!-- Remove this div if you don't want any character at all -->
-          <div class="peek-top" aria-hidden="true"></div>
-
-          <!-- Bottom eyes peek using your existing eye.png -->
-          <div class="peek-bottom" aria-hidden="true"></div>
-        </section>
-
-        <!-- Sections -->
-        <section class="sections">
-          <section class="section" id="work">
-            <div class="section-head">
-              <h2>Work</h2>
-              <span class="hint">Two live projects.</span>
-            </div>
-
-            <div class="cards">
-              <a class="card" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">
-                <div class="card-meta">
-                  <span class="badge">Live</span>
-                  <span class="go" aria-hidden="true">↗</span>
-                </div>
-                <div class="card-title">UI Layout Lab</div>
-                <div class="card-sub">Stage-frame layouts and structure studies.</div>
-              </a>
-
-              <a class="card" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank" rel="noreferrer">
-                <div class="card-meta">
-                  <span class="badge">Live</span>
-                  <span class="go" aria-hidden="true">↗</span>
-                </div>
-                <div class="card-title">Mecha UI Study</div>
-                <div class="card-sub">Glitch/scanline vibe exploration with modern motion.</div>
-              </a>
-            </div>
-          </section>
-
-          <section class="section" id="about">
-            <div class="section-head">
-              <h2>About</h2>
-            </div>
-            <p class="about">
-              I build modern, responsive interfaces with clean structure and subtle motion.
-              Focused layouts. Soft corners. No clutter.
-            </p>
-          </section>
-
-          <section class="section" id="github">
-            <div class="section-head">
-              <h2>GitHub</h2>
-            </div>
-            <a class="btn primary" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">
-              Visit GitHub ↗
-            </a>
-          </section>
-        </section>
-
-        <footer class="footer">
-          <span>© <span id="year"></span> James Daniels</span>
-          <a class="top" href="#top">Top ↑</a>
-        </footer>
       </div>
     </section>
   </main>
