@@ -8,7 +8,7 @@
 </head>
 <body>
 
-   <main class="page">
+  <main class="page">
     <section class="stage" aria-label="Stage">
       <div class="frame">
 
@@ -27,29 +27,26 @@
           <span class="eye e8"></span>
         </div>
 
-        <!-- Empty interior (clean) -->
-        <div class="inside" aria-hidden="true"></div>
+        <!-- Interior content -->
+        <div class="inside">
 
+          <!-- Projects (stacked, inside frame) -->
+          <section id="projects" class="projects-inside" aria-label="Projects">
+            <header class="projects-head">
+              <h2>Projects</h2>
+              <p class="muted">
+                A few things I’ve built. Loaded from <code>data/projects.json</code>.
+              </p>
+            </header>
+
+            <!-- JS injects cards here -->
+            <div id="projectsGrid" class="projects-stack"></div>
+          </section>
+
+        </div>
       </div>
     </section>
-
-    <!-- ✅ Projects section (data-driven) -->
-    <section id="projects" class="section" aria-label="Projects">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <p class="muted">A few things I’ve built. This list is loaded from <code>data/projects.json</code>.</p>
-      </div>
-
-      <!-- ✅ JS will inject project cards here -->
-      <div id="projectsGrid" class="projects-grid"></div>
-    </section>
-
   </main>
-
-  <script src="./app.js"></script>
-</body>
-</html>
-
 
   <script src="./app.js"></script>
 </body>
