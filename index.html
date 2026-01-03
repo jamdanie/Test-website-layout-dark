@@ -2,39 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>James Daniels — UI Studies</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-
-<body>
-  <main class="page">
-    <section class="frame" aria-label="Hero frame">
-
-      <!-- top HUD row -->
-      <header class="hud">
-        <div class="hud-left">
-          <span class="mark">4K</span>
-        </div>
-
-        <nav class="hud-center" aria-label="Navigation">
-          <a class="hud-link" href="#work">Work</a>
-          <a class="hud-link" href="#about">About</a>
-          <a class="hud-link" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">GitHub</a>
-        </nav>
-
-        <div class="hud-right" aria-label="Controls">
-          <a class="hud-btn" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">View</a>
-          <button class="hud-icon" type="button" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </header>
-
-      <!-- main poster area --><!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>James Daniels</title>
   <meta name="description" content="James Daniels — Work, About, GitHub" />
@@ -42,15 +9,13 @@
 </head>
 
 <body>
-  <div class="bg" aria-hidden="true"></div>
-
   <main class="page">
-    <section class="stage" aria-label="Main stage">
-      <div class="frame" id="top">
-        <!-- Top bar (inside frame) -->
+    <section class="stage" id="top">
+      <div class="frame">
+        <!-- Top bar -->
         <header class="topbar">
           <div class="brand">
-            <span class="brand-dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
             <span class="brand-name">James Daniels</span>
           </div>
 
@@ -60,71 +25,76 @@
             <a class="nav-link" href="#github">GitHub</a>
           </nav>
 
-          <div class="topbar-actions">
-            <a class="pill" href="#work" aria-label="View work">View</a>
+          <div class="actions">
+            <a class="pill" href="#work">View</a>
           </div>
         </header>
 
-        <!-- Hero -->
+        <!-- Hero row -->
         <section class="hero">
-          <div class="hero-left">
-            <h1 class="headline">
-              Dark, clean, and
-              <span class="pop">precision-built</span>.
-            </h1>
-            <p class="subcopy">
-              Single-page portfolio with a focused stage layout.
+          <!-- Left: Record player visual (pure CSS) -->
+          <div class="media" aria-hidden="true">
+            <div class="media-surface">
+              <div class="record-wrap">
+                <div class="record"></div>
+                <div class="label"></div>
+              </div>
+              <div class="arm">
+                <div class="arm-bar"></div>
+                <div class="needle"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: clean copy -->
+          <div class="copy">
+            <h1 class="title">HTML / CSS Test</h1>
+            <p class="subtitle">UW student layout study.</p>
+
+            <p class="desc">
+              A motion-focused layout built with only HTML and CSS.
+              Clean structure, soft edges, minimal effects.
             </p>
 
-            <div class="cta-row">
+            <div class="buttons">
               <a class="btn primary" href="#work">See Work</a>
               <a class="btn ghost" href="#github">GitHub</a>
             </div>
-
-            <div class="micro">
-              <span class="micro-chip">Responsive</span>
-              <span class="micro-chip">Minimal motion</span>
-              <span class="micro-chip">GitHub Pages-ready</span>
-            </div>
           </div>
 
-          <div class="hero-right" aria-hidden="true">
-            <div class="hero-art">
-              <!-- Uses CSS background: url("./assets/hero.png") -->
-              <div class="hero-img"></div>
-              <div class="shine"></div>
-            </div>
-          </div>
+          <!-- OPTIONAL: top-right character peek using hero.png -->
+          <!-- Remove this div if you don't want any character at all -->
+          <div class="peek-top" aria-hidden="true"></div>
 
-          <!-- Optional bottom peek eyes -->
+          <!-- Bottom eyes peek using your existing eye.png -->
           <div class="peek-bottom" aria-hidden="true"></div>
         </section>
 
-        <!-- Content -->
-        <section class="content">
+        <!-- Sections -->
+        <section class="sections">
           <section class="section" id="work">
             <div class="section-head">
               <h2>Work</h2>
-              <p>Two live projects.</p>
+              <span class="hint">Two live projects.</span>
             </div>
 
             <div class="cards">
               <a class="card" href="https://jamdanie.github.io/ui-layout-lab/" target="_blank" rel="noreferrer">
-                <div class="card-top">
-                  <span class="tag">Live</span>
-                  <span class="arrow" aria-hidden="true">↗</span>
+                <div class="card-meta">
+                  <span class="badge">Live</span>
+                  <span class="go" aria-hidden="true">↗</span>
                 </div>
-                <h3>UI Layout Lab</h3>
-                <p>Stage-frame layout experiments and clean UI structure.</p>
+                <div class="card-title">UI Layout Lab</div>
+                <div class="card-sub">Stage-frame layouts and structure studies.</div>
               </a>
 
               <a class="card" href="https://jamdanie.github.io/test-website-glitch-scanline-vibe/" target="_blank" rel="noreferrer">
-                <div class="card-top">
-                  <span class="tag">Live</span>
-                  <span class="arrow" aria-hidden="true">↗</span>
+                <div class="card-meta">
+                  <span class="badge">Live</span>
+                  <span class="go" aria-hidden="true">↗</span>
                 </div>
-                <h3>Mecha UI Study</h3>
-                <p>Glitch/scanline vibe exploration with modern motion.</p>
+                <div class="card-title">Mecha UI Study</div>
+                <div class="card-sub">Glitch/scanline vibe exploration with modern motion.</div>
               </a>
             </div>
           </section>
@@ -132,30 +102,26 @@
           <section class="section" id="about">
             <div class="section-head">
               <h2>About</h2>
-              <p>
-                I build modern, responsive interfaces with focused layout and clean motion.
-                I like crisp structure, soft edges, and details that feel intentional.
-              </p>
             </div>
+            <p class="about">
+              I build modern, responsive interfaces with clean structure and subtle motion.
+              Focused layouts. Soft corners. No clutter.
+            </p>
           </section>
 
           <section class="section" id="github">
             <div class="section-head">
               <h2>GitHub</h2>
-              <p>Code + projects in one place.</p>
             </div>
-
-            <div class="github-row">
-              <a class="btn primary" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">
-                Visit GitHub ↗
-              </a>
-            </div>
+            <a class="btn primary" href="https://github.com/jamdanie" target="_blank" rel="noreferrer">
+              Visit GitHub ↗
+            </a>
           </section>
         </section>
 
         <footer class="footer">
           <span>© <span id="year"></span> James Daniels</span>
-          <a class="to-top" href="#top">Top ↑</a>
+          <a class="top" href="#top">Top ↑</a>
         </footer>
       </div>
     </section>
