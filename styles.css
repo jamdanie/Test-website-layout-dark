@@ -3,7 +3,7 @@
   --bg1: #F4F6FB;
   --bg2: #EEF2FA;
 
-  /* soft color wash (not noisy) */
+  /* soft color wash */
   --washA: rgba(95, 130, 255, .18);
   --washB: rgba(255, 120, 210, .10);
 
@@ -15,7 +15,7 @@
   --r: 28px;
 
   /* orbit */
-  --orbitRadius: 190px; /* bigger = further from hero */
+  --orbitRadius: 190px;
 }
 
 *{ box-sizing:border-box; }
@@ -26,7 +26,6 @@ body{
   overflow-x:hidden;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
 
-  /* simple, pleasing background */
   background:
     radial-gradient(900px 520px at 30% 55%, var(--washB), transparent 60%),
     radial-gradient(900px 520px at 70% 35%, var(--washA), transparent 62%),
@@ -34,15 +33,14 @@ body{
 }
 
 /* =========================
-   Page layout
+   Page + Stage
    ========================= */
-/* NOTE: we want the stage centered, but also allow sections below it */
+
 .page{
   min-height:100vh;
-  padding: 28px 18px 80px;
+  padding: 28px 18px;
 }
 
-/* center stage only */
 .stage{
   width: min(1120px, 100%);
   margin: 0 auto;
@@ -50,7 +48,10 @@ body{
   place-items:center;
 }
 
-/* MAIN FRAME */
+/* =========================
+   MAIN FRAME
+   ========================= */
+
 .frame{
   width: 100%;
   height: min(640px, 72vh);
@@ -59,52 +60,47 @@ body{
   border-radius: var(--r);
   box-shadow: var(--shadow);
   position: relative;
-
-  /* IMPORTANT: allow images to go outside border */
   overflow: visible;
 }
 
-/* subtle inner edge (premium) */
 .frame::before{
   content:"";
   position:absolute;
-  inset: 0;
+  inset:0;
   border-radius: inherit;
   pointer-events:none;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.70);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.7);
 }
 
-/* inside stays clean (optional slight tone) */
 .inside{
   position:absolute;
   inset: 18px;
   border-radius: calc(var(--r) - 12px);
   background: linear-gradient(180deg, rgba(18,28,48,.02), rgba(18,28,48,.01));
   border: 1px solid rgba(18,28,48,.06);
+
+  display:flex;
+  align-items:center;
 }
 
 /* =========================
-   ORBIT SYSTEM (hero + eyes)
+   ORBIT SYSTEM
    ========================= */
+
 .orbit{
   position:absolute;
   right: 9%;
-  top: -70px;                  /* hero peeks outside border */
+  top: -70px;
   width: 420px;
   height: 420px;
   pointer-events:none;
 
-  /* one shared center */
   display:grid;
   place-items:center;
-
-  /* rotation happens on container so all eyes move in unison */
   animation: orbitSpin 14s linear infinite;
-  transform-origin: center;
   z-index: 5;
 }
 
-/* the hero image in the center (NOT rotating visually) */
 .hero-peek{
   position:absolute;
   inset: 0;
@@ -113,13 +109,11 @@ body{
   height: 340px;
 
   background-image: url("./assets/peek.png");
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
   background-size: contain;
   background-position: center bottom;
 
-  /* counter-rotate so hero stays still while orbit rotates */
   animation: orbitCounter 14s linear infinite;
-
   filter: drop-shadow(0 26px 45px rgba(0,0,0,.18));
 }
 
@@ -127,21 +121,18 @@ body{
   position:absolute;
   width: 72px;
   height: 72px;
-
-  /* CROP TO CIRCLE */
   border-radius: 50%;
   overflow: hidden;
 
   background-image: url("./assets/eyes.png");
   background-repeat:no-repeat;
-  background-size: cover;       /* IMPORTANT */
+  background-size: cover;
   background-position: center;
 
-  opacity: .95;
+  opacity:.95;
   filter: drop-shadow(0 8px 14px rgba(0,0,0,.14));
 }
 
-/* 8 eyes evenly spaced (45° increments) */
 .eye.e1{ transform: rotate(0deg)   translateX(var(--orbitRadius)) rotate(0deg); }
 .eye.e2{ transform: rotate(45deg)  translateX(var(--orbitRadius)) rotate(-45deg); }
 .eye.e3{ transform: rotate(90deg)  translateX(var(--orbitRadius)) rotate(-90deg); }
@@ -151,181 +142,167 @@ body{
 .eye.e7{ transform: rotate(270deg) translateX(var(--orbitRadius)) rotate(-270deg); }
 .eye.e8{ transform: rotate(315deg) translateX(var(--orbitRadius)) rotate(-315deg); }
 
-/* Orbit animations */
 @keyframes orbitSpin{
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-/* Counter rotation keeps the hero upright */
 @keyframes orbitCounter{
   from { transform: rotate(0deg); }
   to   { transform: rotate(-360deg); }
 }
 
 /* =========================
-   BOTTOM PEEK (eyes outside)
+   PROJECTS (INSIDE FRAME)
    ========================= */
-.peek-bottom{
-  position:absolute;
-  left: 50%;
-  bottom: -14px;               /* outside border */
-  transform: translateX(-50%);
-  width: min(340px, 62%);
-  height: 92px;
 
-  background-image: url("./assets/eyes.png");
-  background-repeat:no-repeat;
-  background-size: contain;
-  background-position: center bottom;
-
-  opacity: .96;
-  filter: drop-shadow(0 14px 22px rgba(0,0,0,.14));
-  pointer-events:none;
-  z-index: 6;
+.projects-inside{
+  max-width: 520px;
+  padding: 22px;
+  display:flex;
+  flex-direction:column;
+  gap: 16px;
 }
 
-/* =========================
-   Projects section (Phase 1)
-   ========================= */
-.section{
-  width: min(1120px, 100%);
-  margin: 44px auto 0;
-  padding: 56px 20px 0;
+.projects-head{
+  display:grid;
+  gap:6px;
 }
 
-.section-head{
-  display: grid;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.section-head h2{
-  margin: 0;
-  font-size: 28px;
-  letter-spacing: -0.02em;
+.projects-head h2{
+  margin:0;
+  font-size:22px;
+  letter-spacing:-0.02em;
   color: rgba(18,28,48,.92);
 }
 
 .muted{
-  margin: 0;
-  opacity: .75;
+  margin:0;
+  font-size:14px;
+  opacity:.75;
   color: rgba(18,28,48,.78);
 }
 
 code{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.95em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size:.95em;
 }
 
-.projects-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+/* STACKED list */
+.projects-stack{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
 }
 
-.projects-grid .card{
-  padding: 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(18,28,48,.12);
-  background: rgba(255,255,255,.70);
-  box-shadow: 0 18px 45px rgba(20,30,55,.08);
+/* Card */
+.projects-stack .card{
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid rgba(18,28,48,.12);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 14px 32px rgba(20,30,55,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+  animation: fadeUp .35s ease both;
 }
 
-.projects-grid .card h3{
-  margin: 0 0 8px;
-  font-size: 18px;
-  letter-spacing: -0.01em;
-  color: rgba(18,28,48,.92);
+.projects-stack .card:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(20,30,55,.12);
 }
 
-.projects-grid .card p{
-  margin: 0;
-  line-height: 1.45;
-  color: rgba(18,28,48,.78);
+.projects-stack .card h3{
+  margin:0 0 6px;
+  font-size:16px;
+  letter-spacing:-0.01em;
 }
 
-.projects-grid .tags{
+.projects-stack .card p{
+  margin:0;
+  font-size:14px;
+  line-height:1.45;
+  opacity:.85;
+}
+
+.projects-stack .tags{
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
-  margin-top:12px;
+  gap:6px;
+  margin-top:10px;
 }
 
-.projects-grid .tag{
-  font-size:.85rem;
-  padding:4px 10px;
+.projects-stack .tag{
+  font-size:12px;
+  padding:3px 9px;
   border-radius:999px;
   border:1px solid rgba(18,28,48,.14);
   background: rgba(255,255,255,.55);
-  color: rgba(18,28,48,.78);
 }
 
-.projects-grid .links{
+.projects-stack .links{
   display:flex;
-  gap:12px;
-  margin-top:14px;
+  gap:10px;
+  margin-top:10px;
 }
 
-.projects-grid .links a{
+.projects-stack .links a{
+  font-size:13px;
   color: rgba(18,28,48,.92);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(18,28,48,.22);
+  text-decoration:none;
+  border-bottom:1px solid rgba(18,28,48,.22);
 }
 
-.projects-grid .links a:hover{
-  border-bottom-color: rgba(18,28,48,.60);
+.projects-stack .links a:hover{
+  border-bottom-color: rgba(18,28,48,.6);
 }
 
-.projects-grid .featured{
-  outline: 2px solid rgba(95,130,255,.22);
-  outline-offset: 2px;
+.projects-stack .featured{
+  outline:2px solid rgba(95,130,255,.22);
+  outline-offset:2px;
+}
+
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(8px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
 /* =========================
-   Responsive tweaks
+   Responsive
    ========================= */
+
 @media (max-width: 720px){
   .frame{
     height: min(640px, 78vh);
   }
 
   .inside{
-    inset: 14px;
+    inset:14px;
+    align-items:flex-start;
+  }
+
+  .projects-inside{
+    max-width:100%;
+    padding:16px;
   }
 
   .orbit{
-    right: 6%;
-    top: -58px;
-    width: 340px;
-    height: 340px;
+    right:6%;
+    top:-58px;
+    width:340px;
+    height:340px;
   }
 
   .hero-peek{
-    width: 220px;
-    height: 300px;
+    width:220px;
+    height:300px;
   }
 
   :root{
-    --orbitRadius: 155px;
+    --orbitRadius:155px;
   }
 
   .eye{
-    width: 64px;
-    height: 64px;
-  }
-
-  .peek-bottom{
-    width: min(320px, 78%);
-    height: 82px;
-  }
-
-  .section{
-    margin-top: 28px;
-    padding-top: 40px;
-  }
-
-  .section-head h2{
-    font-size: 24px;
+    width:64px;
+    height:64px;
   }
 }
