@@ -120,19 +120,24 @@ body{
   filter: drop-shadow(0 26px 45px rgba(0,0,0,.18));
 }
 
-/* eyes that orbit */
 .eye{
   position:absolute;
-  width: 78px;
-  height: 78px;
+  width: 72px;
+  height: 72px;
+
+  /* CROP TO CIRCLE */
+  border-radius: 50%;
+  overflow: hidden;
+
   background-image: url("./assets/eyes.png");
   background-repeat:no-repeat;
-  background-size: contain;
-  background-position:center;
+  background-size: cover;       /* IMPORTANT */
+  background-position: center;
 
   opacity: .95;
-  filter: drop-shadow(0 10px 16px rgba(0,0,0,.14));
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.14));
 }
+
 
 /* 8 eyes evenly spaced (45° increments) */
 .eye.e1{ transform: rotate(0deg)   translateX(var(--orbitRadius)) rotate(0deg); }
