@@ -1,22 +1,29 @@
 {
-  "updated": "2026-01-03",
   "projects": [
     {
       "title": "Dark Premium Portfolio",
       "description": "A one-page premium portfolio running on GitHub Pages with smooth animations and a data-driven projects section.",
-      "tags": ["HTML", "CSS", "JS", "GitHub Pages"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JS",
+        "GitHub Pages"
+      ],
       "repo": "https://github.com/jamdanie/dark-premium-portfolio",
-      "live": "",
+      "live": "https://jamdanie.github.io/dark-premium-portfolio/",
       "featured": true
     },
     {
-      "title": "C# JSON Generator (Soon)",
-      "description": "Next: C# will generate this projects.json via GitHub Actions (still fully inside GitHub).",
-      "tags": ["C#", ".NET", "GitHub Actions"],
-      "repo": "https://github.com/jamdanie",
+      "title": "C# JSON Generator",
+      "description": "C# tool that generates the site\u2019s projects.json via GitHub Actions (still fully inside GitHub).",
+      "tags": [
+        "C#",
+        ".NET",
+        "GitHub Actions"
+      ],
+      "repo": "https://github.com/jamdanie/dark-premium-portfolio",
       "live": "",
       "featured": false
     }
   ]
 }
-
