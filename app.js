@@ -91,22 +91,19 @@ function setupDockMenu() {
     panel.hidden = open;
   });
 
-  // Close when clicking a link in the panel
   panel.addEventListener("click", (e) => {
     const a = e.target.closest("a");
     if (!a) return;
     close();
   });
 
-  // Close on Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();
   });
 
-  // Close if clicking outside panel/button
   document.addEventListener("click", (e) => {
-    const t = e.target;
     if (panel.hidden) return;
+    const t = e.target;
     if (panel.contains(t) || btn.contains(t)) return;
     close();
   });
